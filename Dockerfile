@@ -30,7 +30,7 @@ ARG gid=1000
 
 ENV HOME /home/${user}
 RUN groupadd -g ${gid} ${group}
-RUN groupadd -g 994 docker
+RUN groupadd -g 995 docker
 RUN useradd -c "Jenkins user" -d $HOME -u ${uid} -g ${gid} -m ${user}
 RUN usermod -aG docker jenkins
 LABEL Description="This is a base image, which provides the Jenkins agent executable (slave.jar)" Vendor="Jenkins project" Version="3.20"
