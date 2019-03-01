@@ -52,4 +52,12 @@ WORKDIR /home/${user}
 
 COPY jenkins-slave /usr/local/bin/jenkins-slave
 
+# install aws client
+
+RUN curl -O https://bootstrap.pypa.io/get-pip.py
+RUN python get-pip.py --user
+RUN echo 'export PATH=~/.local/bin:$PATH' >> ~/.bashrc
+RUN .local/bin/pip install awscli --upgrade --user
+
+
 ENTRYPOINT ["jenkins-slave"]
